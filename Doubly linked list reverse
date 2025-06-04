@@ -1,0 +1,50 @@
+class DoublyList {
+    static class Node {
+        int data;
+        Node next;
+        Node previous;
+
+        Node(int data) {
+            this.data = data;
+        }
+    }
+
+    private Node head = null;
+
+    public void insertAtBeg(int data) {
+        Node newNode = new Node(data);
+        newNode.next = head;
+
+        if (head != null) {
+            head.previous = newNode;
+        }
+
+        head = newNode;
+    }
+    public void displayReverse() {
+        Node temp = head;
+        if (temp == null) {
+            System.out.println("List is empty");
+            return;
+        }
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+        while (temp != null) {
+            System.out.print(temp.data + " ");
+            temp = temp.previous;
+        }
+        System.out.println();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        DoublyList list = new DoublyList();
+        list.insertAtBeg(2);
+        list.insertAtBeg(4);
+        list.insertAtBeg(6);
+        list.insertAtBeg(8);
+       list.displayReverse(); 
+    }
+}
