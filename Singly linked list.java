@@ -1,4 +1,4 @@
-class SinglyLinkedList{
+class SLL{
     //class- Node
     static class Node{
         
@@ -77,18 +77,20 @@ public void deleteAtInd(int index)
 }
  public class Main{   
     public static void main(String[] args){
-        SinglyLinkedList sl=new SinglyLinkedList();
-       sl.insertAtBeg(5);
-       sl.insertAtBeg(6);
-       sl.insertAtBeg(7);
-       sl.insertAtBeg(8);
-       sl.insertAtEnd(9); 
-      sl.insertAtEnd(9); //5000 
-       //8->7->6->5->9->null
-       sl.insertAtInd(10,2);
-       //8->10->7->6->5->9->null
-       sl.deleteAtInd(4);
-       //8->10->7->5->9->null
-       sl.display();
+        SLL sll=new SLL();
+       sll.insertAtBeg(1);
+       sll.insertAtBeg(2);
+       sll.insertAtBeg(3);
+       sll.insertAtBeg(4);
+       sll.insertAtEnd(5); 
+       sll.display();
+      //4->3->2->1->5->null
+       sll.insertAtInd(10,2);
+       sll.display();
+       //4->10->3->2->1->5->null
+       sll.deleteAtInd(4);
+       //4->10->3->1->5->null
+       sll.display();
+       
       }
 }
