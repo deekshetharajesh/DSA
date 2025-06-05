@@ -1,0 +1,59 @@
+class SLL{
+    //class- Node
+    static class Node{
+        
+        int data;
+        Node next;
+        Node(int data){
+            this.data=data;
+        }
+    }   
+    //head 
+    private Node head=null;
+//insertAtBeg()
+public void insertAtBeg(int data){
+    Node newNode=new Node(data);
+    newNode.next=head;
+    head=newNode;
+}
+//reverse
+    public void rev(){
+        Node prev=null;
+        Node curr = head;
+        Node temp;
+        while(curr !=null){
+            
+            temp=curr.next;
+            curr.next = prev;
+            prev=curr;
+            curr=temp;
+        }
+        head=prev;
+    }
+
+//display
+    public void display(){
+        Node temp=head;
+        while(temp!=null){
+            System.out.print(temp.data +"->");
+            temp=temp.next;
+        }System.out.print("null");
+    }
+}
+  
+ public class Main{   
+    public static void main(String[] args){
+        SLL sll=new SLL();
+       sll.insertAtBeg(1);
+       sll.insertAtBeg(2);
+       sll.insertAtBeg(3);
+       sll.insertAtBeg(4);
+       sll.insertAtBeg(5);
+         //5->4->3->2->1->null
+       sll.display();
+       sll.rev();
+       //1->2->3->4->5->null
+       sll.display();
+       
+       }
+}
